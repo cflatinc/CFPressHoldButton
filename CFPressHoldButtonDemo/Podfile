@@ -1,0 +1,11 @@
+# Uncomment this line to define a global platform for your project
+platform :ios
+
+target "CFPressHoldButtonDemo" do
+  pod "CFPressHoldButton", path: "../"
+end
+
+target "CFPressHoldButtonDemoTests" do
+
+end
+
