@@ -17,6 +17,8 @@
 {
     if(self.delegate){
         [self.delegate didStartHolding:self];
+    } else {
+        [super touchesBegan:touches withEvent:event];
     }
 }
 
@@ -24,6 +26,8 @@
 {
     if(self.delegate){
         [self.delegate didFinishHolding:self];
+    } else {
+        [super touchesEnded:touches withEvent:event];
     }
 }
 
@@ -31,6 +35,8 @@
 {
     if(self.delegate){
         [self.delegate didFinishHolding:self];
+    } else {
+        [super touchesCancelled:touches withEvent:event];
     }
 }
 
