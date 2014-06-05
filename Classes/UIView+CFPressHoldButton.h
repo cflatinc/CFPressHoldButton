@@ -18,7 +18,7 @@
 
 @interface UIView (CFPressHoldButton)
 
-@property (nonatomic, weak) id<CFPressHoldButtonDelegate> delegate;
+@property (nonatomic, weak) id<CFPressHoldButtonDelegate> pressHoldButtonDelegate;
 
 @end
 

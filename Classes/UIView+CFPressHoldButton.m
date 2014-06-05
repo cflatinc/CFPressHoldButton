@@ -11,12 +11,12 @@
 
 @implementation UIView (CFPressHoldButton)
 
-@dynamic delegate;
+@dynamic pressHoldButtonDelegate;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(self.delegate){
-        [self.delegate didStartHolding:self];
+    if(self.pressHoldButtonDelegate){
+        [self.pressHoldButtonDelegate didStartHolding:self];
     } else {
         [super touchesBegan:touches withEvent:event];
     }
@@ -24,8 +24,8 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(self.delegate){
-        [self.delegate didFinishHolding:self];
+    if(self.pressHoldButtonDelegate){
+        [self.pressHoldButtonDelegate didFinishHolding:self];
     } else {
         [super touchesEnded:touches withEvent:event];
     }
@@ -33,21 +33,21 @@
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(self.delegate){
-        [self.delegate didFinishHolding:self];
+    if(self.pressHoldButtonDelegate){
+        [self.pressHoldButtonDelegate didFinishHolding:self];
     } else {
         [super touchesCancelled:touches withEvent:event];
     }
 }
 
-- (void)setDelegate:(id<CFPressHoldButtonDelegate>)delegate
+- (void)setPressHoldButtonDelegate:(id<CFPressHoldButtonDelegate>)pressHoldButtonDelegate
 {
-    objc_setAssociatedObject(self, _cmd, delegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, _cmd, pressHoldButtonDelegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (id<CFPressHoldButtonDelegate>)delegate
+- (id<CFPressHoldButtonDelegate>)pressHoldButtonDelegate
 {
-    return objc_getAssociatedObject(self, @selector(setDelegate:));
+    return objc_getAssociatedObject(self, @selector(setPressHoldButtonDelegate:));
 }
 
 @end

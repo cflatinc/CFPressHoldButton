@@ -53,7 +53,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.contentView.delegate = self;
+    cell.contentView.pressHoldButtonDelegate = self;
     cell.contentView.userInteractionEnabled = YES;
     cell.contentView.tag = indexPath.row;
     cell.textLabel.text = [NSString stringWithFormat:@"row %02d", indexPath.row];
